@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "orgId": "fictional-org",
+  "collectedAt": "2026-10-29T12:00:00.000Z",
+  "complete": true,
+  "consistency": "batch-revision-guarded",
+  "issues": [],
+  "coverage": {
+    "eventsAndHandoffs": "reachable-from-current-samples",
+    "orphanRowsChecked": false,
+    "administratorEditsGuarded": false
+  },
+  "samples": [
+    {
+      "id": "water-001",
+      "orgId": "fictional-org",
+      "label": "Fictional river-water sample",
+      "batchId": "batch-001",
+      "siteId": "site-001",
+      "status": "ready",
+      "custodianId": "collector-001",
+      "assignedCourierId": null,
+      "pendingHandoffId": null,
+      "version": 0
+    }
+  ],
+  "handoffs": [],
+  "events": [
+    {
+      "id": "event-000",
+      "orgId": "fictional-org",
+      "sampleId": "water-001",
+      "version": 0,
+      "kind": "register_sample",
+      "actorId": "collector-001",
+      "fromCustodianId": "collector-001",
+      "toCustodianId": "collector-001",
+      "capturedAt": "2026-10-29T10:00:00.000Z",
+      "recordedAt": "2026-10-29T10:00:00.000Z",
+      "note": "Fictional sample registered."
+    }
+  ],
+  "receipts": [],
+  "batches": [
+    { "id": "batch-record-001", "orgId": "fictional-org", "batchId": "batch-001", "version": 1 }
+  ]
+}

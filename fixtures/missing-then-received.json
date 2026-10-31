@@ -1,0 +1,112 @@
+{
+  "schemaVersion": 1,
+  "orgId": "fictional-org",
+  "collectedAt": "2026-10-29T12:00:00.000Z",
+  "complete": true,
+  "consistency": "batch-revision-guarded",
+  "issues": [],
+  "coverage": {
+    "eventsAndHandoffs": "reachable-from-current-samples",
+    "orphanRowsChecked": false,
+    "administratorEditsGuarded": false
+  },
+  "samples": [
+    {
+      "id": "water-001",
+      "orgId": "fictional-org",
+      "label": "Fictional river-water sample",
+      "batchId": "batch-001",
+      "siteId": "site-001",
+      "status": "received",
+      "custodianId": "receiver-001",
+      "assignedCourierId": "courier-001",
+      "pendingHandoffId": null,
+      "version": 6
+    }
+  ],
+  "handoffs": [
+    {
+      "id": "handoff-courier",
+      "orgId": "fictional-org",
+      "sampleId": "water-001",
+      "fromUserId": "collector-001",
+      "toUserId": "courier-001",
+      "status": "accepted",
+      "offeredAt": "2026-10-29T10:10:00.000Z",
+      "acceptedAt": "2026-10-29T10:15:00.000Z"
+    },
+    {
+      "id": "handoff-lab",
+      "orgId": "fictional-org",
+      "sampleId": "water-001",
+      "fromUserId": "courier-001",
+      "toUserId": "receiver-001",
+      "status": "accepted",
+      "offeredAt": "2026-10-29T10:20:00.000Z",
+      "acceptedAt": "2026-10-29T11:00:00.000Z"
+    }
+  ],
+  "events": [
+    {
+      "id": "event-000", "orgId": "fictional-org", "sampleId": "water-001", "version": 0,
+      "kind": "register_sample", "actorId": "collector-001",
+      "fromCustodianId": "collector-001", "toCustodianId": "collector-001",
+      "capturedAt": "2026-10-29T10:00:00.000Z", "recordedAt": "2026-10-29T10:00:00.000Z",
+      "note": "Fictional sample registered."
+    },
+    {
+      "id": "event-001", "orgId": "fictional-org", "sampleId": "water-001", "version": 1,
+      "kind": "claim", "actorId": "courier-001",
+      "fromCustodianId": "collector-001", "toCustodianId": "collector-001",
+      "capturedAt": "2026-10-29T10:05:00.000Z", "recordedAt": "2026-10-29T10:05:00.000Z", "note": ""
+    },
+    {
+      "id": "event-002", "orgId": "fictional-org", "sampleId": "water-001", "version": 2,
+      "kind": "offer_handoff", "actorId": "collector-001",
+      "fromCustodianId": "collector-001", "toCustodianId": "collector-001",
+      "capturedAt": "2026-10-29T10:10:00.000Z", "recordedAt": "2026-10-29T10:10:00.000Z", "note": ""
+    },
+    {
+      "id": "event-003", "orgId": "fictional-org", "sampleId": "water-001", "version": 3,
+      "kind": "accept_handoff", "actorId": "courier-001",
+      "fromCustodianId": "collector-001", "toCustodianId": "courier-001",
+      "capturedAt": "2026-10-29T10:15:00.000Z", "recordedAt": "2026-10-29T10:15:00.000Z", "note": ""
+    },
+    {
+      "id": "event-004", "orgId": "fictional-org", "sampleId": "water-001", "version": 4,
+      "kind": "offer_handoff", "actorId": "courier-001",
+      "fromCustodianId": "courier-001", "toCustodianId": "courier-001",
+      "capturedAt": "2026-10-29T10:20:00.000Z", "recordedAt": "2026-10-29T10:20:00.000Z", "note": ""
+    },
+    {
+      "id": "event-005", "orgId": "fictional-org", "sampleId": "water-001", "version": 5,
+      "kind": "receipt_missing", "actorId": "receiver-001",
+      "fromCustodianId": "courier-001", "toCustodianId": "courier-001",
+      "capturedAt": "2026-10-29T10:30:00.000Z", "recordedAt": "2026-10-29T10:30:00.000Z",
+      "note": "Missing at fictional receipt; custody unchanged."
+    },
+    {
+      "id": "event-006", "orgId": "fictional-org", "sampleId": "water-001", "version": 6,
+      "kind": "accept_handoff", "actorId": "receiver-001",
+      "fromCustodianId": "courier-001", "toCustodianId": "receiver-001",
+      "capturedAt": "2026-10-29T11:00:00.000Z", "recordedAt": "2026-10-29T11:00:00.000Z", "note": ""
+    }
+  ],
+  "receipts": [
+    {
+      "id": "receipt-missing-001", "orgId": "fictional-org", "batchId": "batch-001", "actorId": "receiver-001",
+      "recordedAt": "2026-10-29T10:30:00.000Z", "status": "discrepancy",
+      "expectedCount": 1, "receivedCount": 0, "missingCount": 1, "unexpectedCount": 0, "duplicateCount": 0,
+      "details": {
+        "scannedIds": [], "missing": ["water-001"], "unexpected": [], "duplicateScans": [],
+        "items": [
+          { "sampleId": "water-001", "label": "Fictional river-water sample", "versionBefore": 4, "versionAfter": 5,
+            "fromCustodianId": "courier-001", "toCustodianId": "courier-001", "outcome": "missing" }
+        ]
+      }
+    }
+  ],
+  "batches": [
+    { "id": "batch-record-001", "orgId": "fictional-org", "batchId": "batch-001", "version": 7 }
+  ]
+}

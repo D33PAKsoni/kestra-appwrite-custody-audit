@@ -1,0 +1,14 @@
+node_modules/
+.npm-cache/
+dist/
+.local/
+__pycache__/
+*.pyc
+.env
+.env.*
+!.env.example
+runtime/*
+!runtime/README.md
+!runtime/*.mjs
+!runtime/*.py
+!runtime/*.ps1

@@ -1,0 +1,39 @@
+name: Docker blueprint verification
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-node@v7.1.0
+        with:
+          node-version: '24'
+          cache: npm
+      - uses: actions/setup-python@v7.1.0
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-java@v6.1.0
+        with:
+          distribution: temurin
+          java-version: '25'
+      - run: npm ci
+      - run: python -m pip install --target .local/python -r requirements-dev.txt
+      - run: npm test
+      - run: npm run build:blueprint
+      - run: python ci/build-docker-flow.py
+      - run: node ci/run-docker.mjs
+      - uses: actions/upload-artifact@v7.0.2
+        if: always()
+        with:
+          name: docker-verification-evidence
+          path: |
+            reports/docker-ci.json
+            .local/docker-ci/artifacts/
+          if-no-files-found: warn
+          retention-days: 7

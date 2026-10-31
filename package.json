@@ -1,0 +1,21 @@
+{
+  "name": "kestra-labrelay-audit",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Isolated read-only Appwrite custody export for a Kestra audit blueprint",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "test:exporter": "node --test tests/exporter*.test.mjs",
+    "test": "node scripts/check-local.mjs",
+    "build:blueprint": "node scripts/python.mjs scripts/build_blueprint.py",
+    "check:original": "node scripts/verify-original.mjs",
+    "package": "node scripts/package.mjs"
+  },
+  "dependencies": {
+    "node-appwrite": "31.0.0"
+  },
+  "license": "MIT"
+}
