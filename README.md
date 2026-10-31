@@ -23,6 +23,6 @@ npm test
 npm run build:blueprint
 ```
 
-The Docker verification workflow is prepared in .github/workflows/docker-verification.yml. It uses a fictional loopback service, no real Appwrite secrets, and host networking only for test containers. Its execution status is available on the repository Actions page; do not infer a pass from configuration alone.
+[Docker verification passed](https://github.com/D33PAKsoni/kestra-appwrite-custody-audit/actions/runs/41211835271) on 31 October 2026 with Kestra 2.0.7 and Python plugin 1.18.4: clean and later-arrival scenarios succeeded; inconsistent and incomplete scenarios failed at the expected gate with saved reports. All four JSON/CSV artifact pairs were inspected by the harness. This job uses a fictional loopback service and no real Appwrite secrets; host networking is limited to test containers.
 
 See [verification scope](reports/VERIFICATION.md) and [Docker CI design](docs/DOCKER_CI.md). Read private-data handling and coverage limits in the companion guide. Raw cloud identifiers, account credentials, private execution configuration and live setup scripts are deliberately excluded from this public repository.
